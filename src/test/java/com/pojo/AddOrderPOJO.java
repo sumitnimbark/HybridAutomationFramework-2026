@@ -1,6 +1,6 @@
 package com.pojo;
 
-public class StoreOrderPOJO {
+public class AddOrderPOJO {
 
 		private final int id;
 		private int petId;
@@ -8,7 +8,7 @@ public class StoreOrderPOJO {
 		private String date;
 		private boolean complete;
 		
-		public StoreOrderPOJO(int id, int petId, int quantity, String date, boolean complete) {
+		public AddOrderPOJO(int id, int petId, int quantity, String date, boolean complete) {
 			super();
 			this.id = id;
 			this.petId = petId;
