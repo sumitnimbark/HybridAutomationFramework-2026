@@ -1,12 +1,20 @@
 package com.api.tests;
 
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
 import io.restassured.RestAssured;
 
 public class FindPetById {
-
-	public static void main(String[] args) {
-
+	
+	@BeforeMethod
+	public void setup()
+	{
 		RestAssured.baseURI = "https://petstore.swagger.io/";
+	}
+	
+	@Test(description = "Find Pet by ID", groups = {"API"})
+	public void FindPetByIdTest() {
 		
 		RestAssured
 			.given()
