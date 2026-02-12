@@ -5,6 +5,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
+
+import com.constants.Env;
 import com.google.gson.Gson;
 
 public class TestUtility {
@@ -17,7 +19,7 @@ public class TestUtility {
 		
 	}
 	
-	public static String readConfigFile()
+	public static String readConfigFile(Env environment, String keyName)
 	{
 		 /*
 		  * Steps to read data from properties file:
@@ -27,7 +29,10 @@ public class TestUtility {
 		  * 4. Load the file into the Properties object
 		  */
 		
-		File configFile = new File("D:\\AutomationFramework\\HybridAutomationFramework-2026\\Config\\QA.properties");
+		//Converting enum to String
+		Env.valueOf("QA");
+		
+		File configFile = new File("D:\\AutomationFramework\\HybridAutomationFramework-2026\\Config\\"+ environment +".properties");
 		FileReader fileReader=null;
 		try {
 			
@@ -48,7 +53,7 @@ public class TestUtility {
 			e.printStackTrace();
 		}
 		
-		String data = properties.getProperty("BASE_URL");
+		String data = properties.getProperty(keyName);
 		return data;
 	}
 

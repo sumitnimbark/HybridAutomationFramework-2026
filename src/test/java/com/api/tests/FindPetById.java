@@ -1,23 +1,27 @@
 package com.api.tests;
 
+import static com.utility.TestUtility.readConfigFile;
+
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import io.restassured.RestAssured;
+import com.constants.Env;
+
+import static io.restassured.RestAssured.*;
 
 public class FindPetById {
 	
 	@BeforeMethod
 	public void setup()
 	{
-		RestAssured.baseURI = "https://petstore.swagger.io/";
+		baseURI = readConfigFile(Env.QA, "BASE_URL");
+		//RestAssured.baseURI = "https://petstore.swagger.io/";
 	}
 	
 	@Test(description = "Find Pet by ID", groups = {"API"})
 	public void FindPetByIdTest() {
 		
-		RestAssured
-			.given()
+			given()
 				.header("accept", "application/json")
 				.and()
 				.pathParams("petId", "1")

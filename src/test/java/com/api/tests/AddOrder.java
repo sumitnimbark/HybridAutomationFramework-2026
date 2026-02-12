@@ -1,5 +1,6 @@
 package com.api.tests;
 
+import com.constants.Env;
 import com.pojo.AddOrderPOJO;
 
 import static com.utility.TestUtility.*;
@@ -16,7 +17,8 @@ public class AddOrder {
 	@BeforeMethod
 	public void setup()
 	{
-		RestAssured.baseURI = "https://petstore.swagger.io/";
+		RestAssured.baseURI = readConfigFile(Env.QA, "BASE_URL");
+		//RestAssured.baseURI = "https://petstore.swagger.io/";
 		order1 = new AddOrderPOJO(1, 1, 2, "2024-06-10T14:12:10.123Z", true);
 	}
 
