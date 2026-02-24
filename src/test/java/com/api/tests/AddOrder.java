@@ -6,11 +6,14 @@ import com.pojo.AddOrderPOJO;
 import static com.utility.TestUtility.*;
 
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.*;
 
 import java.util.concurrent.TimeUnit;
+
+@Listeners(com.listeners.LogListener.class)
 
 public class AddOrder {
 	
