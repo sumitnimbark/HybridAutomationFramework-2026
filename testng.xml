@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite parallel="false" name="Suite">
+  <test name="API Tests">
+    <classes>
+      <class name="com.api.tests.AddOrder"/>
+      <class name="com.api.tests.FindPetById"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
